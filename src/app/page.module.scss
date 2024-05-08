@@ -1,0 +1,42 @@
+.main {
+  min-height: 100vh;
+
+  max-width: 1200px;
+  width: 90vw;
+
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 20px;
+
+  h1 {
+    color: var(--primary);
+    text-align: center;
+  }
+}
+
+.charactersContainer {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+.episodesContainer {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .charactersContainer, .episodesContainer {
+    grid-template-columns: 1fr;
+  }
+}

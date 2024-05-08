@@ -1,10 +1,15 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { getCharacters } from '@/services/characters.services';
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <h1>Rick and Morty</h1>
-    </main>
-  );
+import Home from './page.client';
+
+const fetchCharacters = async () => {
+  const response = await getCharacters(1);
+
+  return response;
+};
+
+export default async function HomeContainer() {
+  const initialCharacters = await fetchCharacters();
+
+  return <Home initialCharacters={initialCharacters} />;
 }

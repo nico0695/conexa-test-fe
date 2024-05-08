@@ -1,0 +1,76 @@
+.episodesContainer {
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+
+  color: var(--text-color);
+
+  background-color: #ffffff25;
+}
+
+.title {
+  color: var(--primary);
+  padding: 10px 10px 0 10px;
+}
+
+.tableContainer {
+  height: 40vh;
+  min-height: 400px;
+  overflow: auto;
+
+  position: relative;
+}
+
+.episodesTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: var(--background);
+
+    th {
+      padding: 10px 10px;
+      font-weight: bold;
+      font-size: 1em;
+
+      text-align: start;
+    }
+  }
+
+  tbody {
+    tr:nth-child(odd) {
+      background-color: #0000000d;
+    }
+
+    td {
+      padding: 10px 10px;
+      font-size: 0.85em;
+
+      text-align: start;
+    }
+
+    td:global(.emptyRow) {
+      text-align: center;
+    }
+  }
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: #ffffff4d;
+
+  transition: all 0.3s;
+}
