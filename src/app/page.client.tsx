@@ -68,14 +68,18 @@ export default function Home({
 
           <div className={styles.episodesContainer}>
             <EpisodesList
-              title={charactersSelected.character1?.name}
+              title={
+                charactersSelected.character1?.name ?? 'Select character #1'
+              }
               episodesId={charactersSelected.character1?.episodeIds}
             />
 
             <EpisodesList title={commonTitle} episodesId={commonEpisodes} />
 
             <EpisodesList
-              title={charactersSelected.character2?.name}
+              title={
+                charactersSelected.character2?.name ?? 'Select character #2'
+              }
               episodesId={charactersSelected.character2?.episodeIds}
             />
           </div>

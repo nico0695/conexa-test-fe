@@ -68,7 +68,7 @@ const EpisodesList = (props: IEpisodesListProps) => {
 
             {episodesList.length === 0 && (
               <tr>
-                <td colSpan={3}>No episodes found</td>
+                <td className={styles.notFound} colSpan={3}>No episodes found</td>
               </tr>
             )}
           </tbody>

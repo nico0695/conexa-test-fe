@@ -13,8 +13,8 @@
 }
 
 .tableContainer {
-  height: 40vh;
-  min-height: 400px;
+  height: 35vh;
+  min-height: 350px;
   overflow: auto;
 
   position: relative;
@@ -50,6 +50,10 @@
       font-size: 0.85em;
 
       text-align: start;
+    }
+
+    td.notFound {
+      text-align: center;
     }
 
     td:global(.emptyRow) {
