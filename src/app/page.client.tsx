@@ -35,14 +35,20 @@ export default function Home({
     };
   };
 
-  const commonTitle = Object.values(charactersSelected)
-    .map((character) => character?.name)
-    .join(' & ');
-  const commonEpisodes = charactersSelected.character1?.episodeIds.filter(
-    (episodeId) =>
-      !charactersSelected.character2 ||
-      charactersSelected.character2?.episodeIds.includes(episodeId)
-  );
+  const commonTitle =
+    charactersSelected.character1 && charactersSelected.character2
+      ? Object.values(charactersSelected)
+          .map((character) => character?.name)
+          .join(' & ')
+      : 'Select characters';
+  const commonEpisodes =
+    charactersSelected.character1 && charactersSelected.character2
+      ? charactersSelected.character1?.episodeIds.filter(
+          (episodeId) =>
+            !charactersSelected.character2 ||
+            charactersSelected.character2?.episodeIds.includes(episodeId)
+        )
+      : [];
 
   return (
     <main className={styles.main}>
