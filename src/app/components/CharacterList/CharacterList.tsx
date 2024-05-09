@@ -39,7 +39,10 @@ const CharacterList = (props: ICharacterListProps) => {
     const newPage = page + 1;
     setPage(newPage);
 
-    if (characters.length < (newPage * pageSize + 6) && requestInfo.next !== null) {
+    if (
+      characters.length < newPage * pageSize + 6 &&
+      requestInfo.next !== null
+    ) {
       setIsLoading(true);
 
       const response = await getCharacters(newPage);
@@ -60,7 +63,7 @@ const CharacterList = (props: ICharacterListProps) => {
   const rowsToRender = characters.slice((page - 1) * pageSize, page * pageSize);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="character-list">
       <div className={styles.listGrid}>
         {rowsToRender.map((character) => (
           <div
@@ -68,14 +71,17 @@ const CharacterList = (props: ICharacterListProps) => {
             className={`${styles.characterCard} ${
               character.id === characterSelected ? styles.selected : ''
             } ${character.id === characterDisabled ? styles.disabled : ''}`}
-            onClick={() => onSelect(character)}
+            onClick={
+              character.id !== characterDisabled
+                ? () => onSelect(character)
+                : undefined
+            }
           >
             <Image
               src={character.image}
               alt={character.name}
               width={100}
               height={100}
-              objectFit="contain"
             />
 
             <div className={styles.characterInfo}>
@@ -103,7 +109,7 @@ const CharacterList = (props: ICharacterListProps) => {
           onClick={handleNext}
           disabled={requestInfo.next === null || isLoading}
         >
-          Next 
+          Next
         </button>
       </div>
     </div>

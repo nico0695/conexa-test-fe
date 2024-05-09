@@ -4,7 +4,7 @@ import styles from './loading.module.scss';
 
 const Loading = () => {
   return (
-    <div className={styles.loaderSpinner}>
+    <div className={styles.loaderSpinner} data-testid={'loading-spinner'}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="100%"
